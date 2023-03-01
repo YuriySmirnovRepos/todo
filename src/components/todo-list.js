@@ -1,21 +1,20 @@
 import React from "react";
 import ToDoListItem from "./todo-list-item";
+import './todo-list.css'
 
 const ToDoList = ({ todos=[] }) =>
 {
     //Преобразование массива объектов в массив JSX-элементов
     const elems = todos.map((item) => {
-        // return  (<li>
-        //         <ToDoListItem 
-        //         label = {item.label}
-        //         important = {item.important}/></li>)
         const { id, ...itemProps } = item;
-        return  (<li key={item.id}>
+        return  (
+        <li key={item.id} className="list-group-item">
             <ToDoListItem {...itemProps} />
-            </li>)
+        </li>
+        )
     })
     return (
-        <ul>
+        <ul className="list-group todo-list">
             { elems }
         </ul>
     )
